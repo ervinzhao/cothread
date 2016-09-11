@@ -8,7 +8,7 @@ all:$(TARGET_NAME)
 	@echo $< done.
 	
 CC=gcc
-OPT+=-ggdb -O0 -fPIC
+OPT+=-ggdb -O0 -fPIC -Wall
 FINAL_CFLAGS=$(CFLAGS) $(OPT)
 FINAL_LDFLAGS=$(LDFLAGS) $(OPT)
 FINAL_LIBS=

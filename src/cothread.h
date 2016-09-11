@@ -11,7 +11,7 @@ extern "C" {
 
     struct cothread_s;
     typedef struct {
-        cothread_s *thread;
+        struct cothread_s *thread;
     } cothread_t;
 
     void cothread_init();

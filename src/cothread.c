@@ -111,9 +111,9 @@ void cothread_yield()
 {
     struct cothread_s *thread = cothread_pool.current_thread;
 
-    struct cothread_s *current = cothread_pool.current_thread;
-    cothread_pool.current_thread = thread;
-    swapcontext(&current->ctx, thread->ctx.uc_link);
+    cothread_pool.current_thread = container_of(
+            thread->ctx.uc_link, struct cothread_s, ctx);
+    swapcontext(&thread->ctx, thread->ctx.uc_link);
 
     return;
 }
